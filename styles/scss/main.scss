@@ -1,0 +1,186 @@
+:root {
+    // whites
+    --color-white-1: #ffffff;
+    --color-white-2: #ebf2fa;
+
+    // grays
+    --color-light-gray-1: #eee;
+    --color-light-gray-2: #ccc;
+
+    --color-gray-dark-1: #777;
+    --color-gray-dark-2: #333;
+
+    // light greens
+    --color-light-green-1: #d4f500;
+    --color-light-green-2: #c2e000;
+    --color-light-green-3: #a5be00;
+
+    // dark greens
+    --color-dark-green-1: #7cb441;
+    --color-dark-green-2: #72a53b;
+    --color-dark-green-3: #679436;
+
+    // light blues
+    --color-light-blue-1: #6097be;
+    --color-light-blue-2: #518db8;
+    --color-light-blue-3: #427aa1;
+
+    // dark blue
+    --color-dark-blue-1: #078fc5;
+    --color-dark-blue-2: #0681b1;
+    --color-dark-blue-3: #05668d;
+
+    --text-color: var(--color-gray-dark-2);
+
+    // gradients
+    --primary-gradient: linear-gradient(to right bottom, var(--color-dark-green-1), var(--color-dark-blue-1));
+
+    // padding
+    --general-padding: 2rem;
+}
+// base styles
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+// mixins
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin responsiveImg {
+    width: 100%;
+    max-width: 15rem;
+    height: auto;
+}
+
+@mixin textClip {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+// header styles
+#header {
+    background-color: var(--color-white-2);
+    max-height: 25rem;
+    #nav-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        #header-img {
+            @include responsiveImg;
+        }
+        ul {
+            min-width: 33.33%;
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            .nav-link {
+                text-transform: uppercase;
+                text-decoration: none;
+                color: var(--color-gray-dark-2);
+                letter-spacing: 0.15rem;
+            }
+        }
+    }
+}
+
+// about section styles
+#about {
+    @include flexCenter;
+    flex-direction: column;
+    background: var(--color-white-1);
+    padding: var(--general-padding);
+
+    h1 {
+        font-size: 3.6rem;
+        background: var(--primary-gradient);
+        @include textClip;
+    }
+
+    #feature {
+        padding: var(--general-padding) 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .description {
+            font-size: 2.2rem;
+            line-height: 2;
+            padding-left: 40px;
+        }
+    }
+}
+
+// meditations section
+#meditations,
+#subscribe {
+    @include flexCenter;
+    flex-direction: column;
+    background: var(--primary-gradient);
+    padding: var(--general-padding);
+
+    h2 {
+        color: var(--color-white-2);
+        font-size: 2.8rem;
+    }
+
+    #card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(500px, 1fr));
+        gap: 2rem;
+    }
+}
+
+// testimonials section
+#testimonials {
+    @include flexCenter;
+    flex-direction: column;
+    background: var(--color-white-1);
+    padding: var(--general-padding);
+
+    h2 {
+        font-size: 2.8rem;
+        background: var(--primary-gradient);
+        @include textClip;
+    }
+}
+
+#subscribe {
+    h3 {
+        font-size: 2.4rem;
+        color: var(--color-white-2);
+    }
+}
+
+#footer {
+    @include flexCenter;
+    padding: var(--general-padding);
+}
