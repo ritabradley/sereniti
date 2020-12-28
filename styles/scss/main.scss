@@ -36,7 +36,7 @@
     --primary-gradient: linear-gradient(to right bottom, var(--color-dark-green-1), var(--color-dark-blue-1));
 
     // padding
-    --general-padding: 2rem;
+    --general-padding: 3rem;
 }
 // base styles
 * {
@@ -89,6 +89,9 @@ body {
 #header {
     background-color: var(--color-white-2);
     max-height: 25rem;
+    position: sticky;
+    top: 0;
+    width: 100vw;
     #nav-bar {
         display: flex;
         align-items: center;
@@ -107,6 +110,7 @@ body {
                 text-decoration: none;
                 color: var(--color-gray-dark-2);
                 letter-spacing: 0.15rem;
+                cursor: pointer;
             }
         }
     }
@@ -152,15 +156,50 @@ body {
         font-size: 2.8rem;
     }
 
-    #card-grid {
+    .card-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(500px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(3, minmax(400px, 1fr));
+        justify-content: center;
+        gap: 4rem;
+        padding: var(--general-padding);
+
+        .card {
+            background: var(--color-white-2);
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 1rem 2rem 2rem rgba(0, 0, 0, 0.2);
+
+            .card-header {
+                margin: 0;
+            }
+            .video {
+                width: 100%;
+                height: 100%;
+            }
+            .card-description {
+                padding: var(--general-padding);
+                background: var(--color-white-1);
+                color: var(--text-color);
+                text-align: center;
+
+                h4 {
+                    font-size: 2rem;
+                    padding-bottom: 1.4rem;
+                    background: var(--primary-gradient);
+                    @include textClip;
+                }
+
+                p {
+                    font-weight: 300;
+                    line-height: 2;
+                }
+            }
+        }
     }
 }
 
 // testimonials section
-#testimonials {
+#features {
     @include flexCenter;
     flex-direction: column;
     background: var(--color-white-1);
@@ -177,6 +216,37 @@ body {
     h3 {
         font-size: 2.4rem;
         color: var(--color-white-2);
+    }
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 25%;
+        padding: var(--general-padding);
+
+        #email {
+            padding: 1.5rem;
+            border: 0.1rem solid var(--color-dark-gray-1);
+            border-radius: 0.5rem;
+
+            &::placeholder {
+                color: var(--color-light-gray-2);
+            }
+
+            caret-color: var(--color-light-blue-2);
+        }
+        #submit {
+            padding: 1.5rem 2rem;
+            background-color: var(--color-light-blue-2);
+            color: var(--color-white-1);
+            border: none;
+            border-radius: 0.5rem;
+            transition: background-color 0.5s;
+
+            &:hover {
+                background-color: var(--color-light-blue-3);
+            }
+        }
     }
 }
 
