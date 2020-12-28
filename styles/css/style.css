@@ -19,7 +19,7 @@
   --color-dark-blue-3: #05668d;
   --text-color: var(--color-gray-dark-2);
   --primary-gradient: linear-gradient(to right bottom, var(--color-dark-green-1), var(--color-dark-blue-1));
-  --general-padding: 2rem;
+  --general-padding: 3rem;
 }
 
 * {
@@ -51,6 +51,9 @@ body {
 #header {
   background-color: var(--color-white-2);
   max-height: 25rem;
+  position: sticky;
+  top: 0;
+  width: 100vw;
 }
 #header #nav-bar {
   display: flex;
@@ -73,6 +76,7 @@ body {
   text-decoration: none;
   color: var(--color-gray-dark-2);
   letter-spacing: 0.15rem;
+  cursor: pointer;
 }
 
 #about {
@@ -116,14 +120,53 @@ body {
   color: var(--color-white-2);
   font-size: 2.8rem;
 }
-#meditations #card-grid,
-#subscribe #card-grid {
+#meditations .card-grid,
+#subscribe .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(500px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, minmax(400px, 1fr));
+  justify-content: center;
+  gap: 4rem;
+  padding: var(--general-padding);
+}
+#meditations .card-grid .card,
+#subscribe .card-grid .card {
+  background: var(--color-white-2);
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 1rem 2rem 2rem rgba(0, 0, 0, 0.2);
+}
+#meditations .card-grid .card .card-header,
+#subscribe .card-grid .card .card-header {
+  margin: 0;
+}
+#meditations .card-grid .card .video,
+#subscribe .card-grid .card .video {
+  width: 100%;
+  height: 100%;
+}
+#meditations .card-grid .card .card-description,
+#subscribe .card-grid .card .card-description {
+  padding: var(--general-padding);
+  background: var(--color-white-1);
+  color: var(--text-color);
+  text-align: center;
+}
+#meditations .card-grid .card .card-description h4,
+#subscribe .card-grid .card .card-description h4 {
+  font-size: 2rem;
+  padding-bottom: 1.4rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#meditations .card-grid .card .card-description p,
+#subscribe .card-grid .card .card-description p {
+  font-weight: 300;
+  line-height: 2;
 }
 
-#testimonials {
+#features {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,17 +174,73 @@ body {
   background: var(--color-white-1);
   padding: var(--general-padding);
 }
-#testimonials h2 {
+#features h2 {
   font-size: 2.8rem;
   background: var(--primary-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+#features .card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(400px, 1fr));
+  justify-content: center;
+  gap: 4rem;
+  padding: var(--general-padding);
+}
+#features .card-grid .features-card {
+  text-align: center;
+}
+#features .card-grid .features-card i {
+  font-size: 4rem;
+  color: var(--color-dark-blue-1);
+}
+#features .card-grid .features-card h4 {
+  font-size: 2rem;
+  padding-top: 2rem;
+  color: var(--text-color);
+}
+#features .card-grid .features-card .card-description {
+  padding: var(--general-padding);
+  background: var(--color-white-1);
+  color: var(--text-color);
+  text-align: center;
+}
+#features .card-grid .features-card .card-description p {
+  font-weight: 300;
+  line-height: 1.4;
+}
 
 #subscribe h3 {
   font-size: 2.4rem;
   color: var(--color-white-2);
+}
+#subscribe form {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 25%;
+  padding: var(--general-padding);
+}
+#subscribe form #email {
+  padding: 1.5rem;
+  border: 0.1rem solid var(--color-dark-gray-1);
+  border-radius: 0.5rem;
+  caret-color: var(--color-light-blue-2);
+}
+#subscribe form #email::placeholder {
+  color: var(--color-light-gray-2);
+}
+#subscribe form #submit {
+  padding: 1.5rem 2rem;
+  background-color: var(--color-light-blue-2);
+  color: var(--color-white-1);
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.5s;
+}
+#subscribe form #submit:hover {
+  background-color: var(--color-light-blue-3);
 }
 
 #footer {
