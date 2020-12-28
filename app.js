@@ -1,4 +1,4 @@
-const VideoController = function(isHovering, videoElement) {
+const VideoController = function (isHovering, videoElement) {
   if (isHovering == true) {
     videoElement.play();
   } else if (isHovering == false) {
